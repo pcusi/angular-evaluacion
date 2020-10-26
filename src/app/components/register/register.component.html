@@ -1,0 +1,15 @@
+<div class="container my-5">
+  <h1>Registrar Usuario</h1>
+  <form #regForm="ngForm" (ngSubmit)="submit(regForm)">
+    <div class="form-group">
+      <input class="form-control" name="first_name" type="text" [(ngModel)]="data.first_name" required>
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="last_name" type="text" [(ngModel)]="data.last_name" required>
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="email" type="email" [(ngModel)]="data.avatar" required>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Entrar" [disabled]="!regForm.valid">
+  </form>
+</div>

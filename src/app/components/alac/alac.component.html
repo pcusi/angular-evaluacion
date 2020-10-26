@@ -1,0 +1,42 @@
+<div class="container my-5">
+  <h1>Iniciar sesión</h1>
+  <form #iniForm="ngForm" (ngSubmit)="submit(iniForm)">
+    <div class="form-group">
+      <input class="form-control" name="email" type="email" [(ngModel)]="person.email" required>
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="password" type="password" [(ngModel)]="person.password" required>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Entrar" [disabled]="!iniForm.valid">
+  </form>
+</div>
+
+<app-register></app-register>
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Email</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Avatar</th>
+            <th scope="col">Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of data">
+            <th>{{i.id}}</th>
+            <td>{{i.email}}</td>
+            <td>{{i.first_name}}</td>
+            <td>
+                <img src="{{i.avatar}}" class="rounded-circle" width="35" height="35">
+            </td>
+            <td>
+              <button class="btn btn-success" routerLink="/edit/{{i.id}}">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+</div>
